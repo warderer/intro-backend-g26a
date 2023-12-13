@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 // Importar las rutas
 const homeRoutes = require('./routes/homeRoutes')
