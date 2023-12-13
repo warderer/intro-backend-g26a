@@ -28,10 +28,36 @@ const findOne = (houseId) => {
     .where({ active: true })
 }
 
-// Paso #3 Exportar mis funciones para que sean accesibles desde el controlador.
+const update = (houseId, bodyToUpdate) => {
+  return knex
+    .update(bodyToUpdate)
+    .from('homes')
+    .where({ house_id: houseId })
+    .returning('*')
+}
 
+// Voy a borrar un registro de manera REAL de la base de datos
+const destroy = (houseId) => {
+  return knex
+    .del() // delete: Borrar un registro
+    .from('homes')
+    .where({ house_id: houseId })
+}
+
+// Borrado lógico, no se borra el registro de la base de datos, solo se cambia el valor de la columna active a false
+const softDelete = (houseId) => {
+  return knex
+    .update({ active: false })
+    .from('homes')
+    .where({ house_id: houseId })
+}
+
+// Paso #3 Exportar mis funciones para que sean accesibles desde el controlador.
 module.exports = {
   create,
   findAll,
-  findOne
+  findOne,
+  update,
+  destroy,
+  softDelete
 }
