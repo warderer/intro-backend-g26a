@@ -8,19 +8,19 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host:'192.168.64.1',
+      host: '192.168.64.1',
       database: 'knexapi',
-      user:     'charly',
+      user: 'charly',
       password: 'password',
       port: 5432
-    },
+    }
   },
 
   staging: {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -36,7 +36,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -48,4 +48,4 @@ module.exports = {
     }
   }
 
-};
+}
